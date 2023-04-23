@@ -1,4 +1,4 @@
-# Liasm bonus subject from piscine:
+# Bonus subject from piscine:
 
 ## ft_list_remove_if
 
