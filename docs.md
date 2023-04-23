@@ -1,0 +1,11 @@
+- [Wikipedia x86 64 assembly language](https://en.wikipedia.org/wiki/X86_assembly_language)
+- [Intel and AT&T Syntax](https://imada.sdu.dk/u/kslarsen/dm546/Material/IntelnATT.htm)
+- [x86 Assembly Guide](https://www.cs.virginia.edu/~evans/cs216/guides/x86.html)
+- [42docs libasm](https://harm-smits.github.io/42docs/projects/libasm)
+- [x86-64 Linux assembly youtube](https://www.youtube.com/playlist?list%3DPLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn)
+
+- [x86_64 (64-bit)](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86_64-64_bit)
+- [x86 and amd64 instruction reference](https://www.felixcloutier.com/x86/)
+- [CS107 x86-64 Reference Sheet](https://web.stanford.edu/class/cs107/resources/x86-64-reference.pdf)
+- [x64 Cheat Sheet](https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf)
+- [Code Browser for C & C++](https://codebrowser.dev/)
