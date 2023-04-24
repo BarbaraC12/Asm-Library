@@ -3,7 +3,7 @@
 - [x86 Assembly Guide](https://www.cs.virginia.edu/~evans/cs216/guides/x86.html)
 - [42docs libasm](https://harm-smits.github.io/42docs/projects/libasm)
 - [x86-64 Linux assembly youtube](https://www.youtube.com/playlist?list%3DPLetF-YjXm-sCH6FrTz4AQhfH6INDQvQSn)
-
+- [Architecture youtube](https://www.youtube.com/watch?v=x4yzYMZ5ZNo&list=PLrSOXFDHBtfFrlG51dj8p_zCV994yWahY)
 - [x86_64 (64-bit)](https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#x86_64-64_bit)
 - [x86 and amd64 instruction reference](https://www.felixcloutier.com/x86/)
 - [CS107 x86-64 Reference Sheet](https://web.stanford.edu/class/cs107/resources/x86-64-reference.pdf)
