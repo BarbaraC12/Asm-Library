@@ -10,7 +10,7 @@ loop:
 	inc		rcx						; sinon on incremente rcx
  	# cmp		BYTE [rdi + rax], 0		;
 	# je		return					; si je = (rdi[rax] == 0) -> return
- 	# inc		rax						; sinon on incremente rcx
+ 	# inc		rax						; sinon on incremente rax
 	jmp		loop					; boucle sur loop
 
 return:
