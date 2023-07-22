@@ -1,3 +1,15 @@
+/******************************************************************************/
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bcano <bcano@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 17:06:49 by bcano             #+#    #+#             */
+/*   Updated: 2023/07/22 17:22:13 by bcano            ###   ########.fr       */
+/*                                                                            */
+/******************************************************************************/
+
 #include <string.h>
 #include "lib.h"
 
@@ -9,51 +21,53 @@
 #include <stdio.h>
 
 int  main() {
-  char *str1 = "prime test 1234";
-  char *str2 = "2";
-  char *str3 = "three";
+  char *str0 = "Je jure solonellement que mes intentions sont mauvaises";
+  char *str1 = "Pourquoi cela signifierait-il que ce n'est pas réel?";
+  char *str2 = "42";
+  char *str3 = "\0";
   char *str4 = "";
-  char *str5 = "\n";
-//   char *str6 = "Je jure solanelement que mes intentions sont mauvaises";
+  char *str5 = "Mefait accomplies!";
   
-	printf("#--------- FT_STRLEN vs STRLEN ---------#\n");
-	printf("1: |%s| ----------\n", str1);
-	printf("strlen    : %zd\n", strlen(str1));
+  	printf("\033[0;33m# --------- FT_STRLEN vs STRLEN --------- #\033[0m\n");
+	printf("0: |\033[1;37m%s\033[0m| \n", str0);
+	printf("ft_strlen : %zd\n", ft_strlen(str0));
+	printf("strlen    : %zd\n", strlen(str0));
+	printf("1: |\033[1;37m%s\033[0m| \n", str1);
 	printf("ft_strlen : %zd\n", ft_strlen(str1));
-	printf("2: |%s| ----------\n", str2);
+	printf("strlen    : %zd\n", strlen(str1));
+	printf("2: |\033[1;37m%s\033[0m| \n", str2);
 	printf("ft_strlen : %zd\n", ft_strlen(str2));
 	printf("strlen    : %zd\n", strlen(str2));
-	printf("3: |%s| ----------\n", str3);
+	printf("3: |\033[1;37m%s\033[0m| \n", str3);
 	printf("ft_strlen : %zd\n", ft_strlen(str3));
 	printf("strlen    : %zd\n", strlen(str3));
-	printf("4: |%s| ----------\n", str4);
+	printf("4: |\033[1;37m%s\033[0m| \n", str4);
 	printf("ft_strlen : %zd\n", ft_strlen(str4));
 	printf("strlen    : %zd\n", strlen(str4));
-	printf("4: |%s| ----------\n", str4);
+	printf("5: |\033[1;37m%s\033[0m| \n", str5);
 	printf("ft_strlen : %zd\n", ft_strlen(str5));
 	printf("strlen    : %zd\n", strlen(str5));
+	// printf("\033[0;33m# --------- FT_STRCPY vs STRCPY --------- #\033[0m\n");
+	// printf("1: |\033[1;37m%s\033[0m| \n", str1);
+	// printf("ft_strcpy : |\033[1;37m%s|\n", ft_strcpy(str1));
+	// printf("strcpy    : |\033[1;37m%s|\n", strcpy(str1));
 	
-	// printf("#--------- FT_STRCPY vs STRCPY ---------#\n");
-	// printf("1: |%s| ----------\n", str1);
-	// printf("ft_strcpy : |%s|\n", ft_strcpy(str1));
-	// printf("strcpy    : |%s|\n", strcpy(str1));
+	// printf("\033[0;33m# --------- FT_STRDUP vs STRDUP --------- #\033[0m\n");
+	// printf("1: |\033[1;37m%s\033[0m| \n", str1);
+	// printf("ft_strdup : |\033[1;37m%s|\n", ft_strdup(str1));
+	// printf("strdup    : |\033[1;37m%s|\n", strdup(str1));
 	
-	// printf("#--------- FT_STRDUP vs STRDUP ---------#\n");
-	// printf("1: |%s| ----------\n", str1);
-	// printf("ft_strdup : |%s|\n", ft_strdup(str1));
-	// printf("strdup    : |%s|\n", strdup(str1));
+	// printf("\033[0;33m# --------- FT_STRCMP vs STRCMP --------- #\033[0m\n");
+	// printf("1: |\033[1;37m%s\033[0m| \n", str1);
+	// printf("ft_strcmp : |\033[1;37m%s|\n", ft_strcmp(str1, "hello"));
+	// printf("strcmp    : |\033[1;37m%s|\n", strcmp(str1, "hello"));
 	
-	// printf("#--------- FT_STRCMP vs STRCMP ---------#\n");
-	// printf("1: |%s| ----------\n", str1);
-	// printf("ft_strcmp : |%s|\n", ft_strcmp(str1, "hello"));
-	// printf("strcmp    : |%s|\n", strcmp(str1, "hello"));
-	
-	// printf("#--------- FT_WRITE vs WRITE ---------#\n");
-	// printf("1: |%s| ----------\n", str1);
+	// printf("\033[0;33m# --------- FT_WRITE vs WRITE --------- #\033[0m\n");
+	// printf("1: |\033[1;37m%s\033[0m| \n", str1);
 	// printf("ft_write  = %zd\n", ft_write(0, str6, strlen(str6)));
 	// printf("write     = %zd\n", write(0, str6, strlen(str6)));
 	
-	// printf("#---------  FT_READ vs READ  ---------#\n");
+	// printf("\033[0;33m# ---------  FT_READ vs READ  --------- #\033[0m\n");
 	
 	// char	buff[2048];
 	// int		fd;
@@ -61,7 +75,7 @@ int  main() {
 	// ssize_t	ret_;
 	// fd = open("test1.txt", O_RDONLY);
 	
-	// printf("1: |%s| ----------\n", str1);
+	// printf("1: |\033[1;37m%s\033[0m| \n", str1);
  //    ret_ft = ft_read(fd, buff, 10);
  //    buff[ret_ft] = '\0';
 	// printf("ft_read   : \n buff = %s, ret = %zd\n", buff, ret_ft);
