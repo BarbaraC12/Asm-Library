@@ -1,22 +1,17 @@
-section .data
-    text db "text here", 10
+global ft_write
+extern __errno_location
 
-section .text
-    global _start
+ft_write:
+	mov rax, 1											; syscall 1: write
+	syscall													; call write
+	cmp rax, 0											; cmp to zero
+	jl fail													; if cmp = false
+	ret
 
-_strlen
-    
-    [rdi]
-    @ strlen(text);
-
-_start:
-    mov rax, 1
-    mov rdi, 1
-    mov rsi, text
-    mov rdx, 16
-    syscall
-    @ write(1, text, 16);
-    mov rax, 60
-    mov rdi, 0
-    syscall
-    @ exit 0;
+fail:															; if error: errno set rax to < 0
+	neg rax													; [rax *= -1] to get code errno
+	mov rdi, rax										; cpy error in rdi
+	call __errno_location WRT ..plt	; get the errno addr
+	mov [rax], rdi									; store error at rdi
+	mov rax, -1											; set rax to -1
+	ret

@@ -6,19 +6,12 @@
 /*   By: bcano <bcano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:06:49 by bcano             #+#    #+#             */
-/*   Updated: 2023/07/22 17:22:13 by bcano            ###   ########.fr       */
+/*   Updated: 2023/07/22 18:55:04 by bcano            ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include <string.h>
 #include "lib.h"
-
-#include <errno.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 int  main() {
   char *str0 = "Je jure solonellement que mes intentions sont mauvaises";
@@ -62,11 +55,21 @@ int  main() {
 	// printf("ft_strcmp : |\033[1;37m%s|\n", ft_strcmp(str1, "hello"));
 	// printf("strcmp    : |\033[1;37m%s|\n", strcmp(str1, "hello"));
 	
-	// printf("\033[0;33m# --------- FT_WRITE vs WRITE --------- #\033[0m\n");
-	// printf("1: |\033[1;37m%s\033[0m| \n", str1);
-	// printf("ft_write  = %zd\n", ft_write(0, str6, strlen(str6)));
-	// printf("write     = %zd\n", write(0, str6, strlen(str6)));
+	printf("\033[0;33m# --------- FT_WRITE vs WRITE --------- #\033[0m\n");
+	printf("0: |\033[1;37m%s\033[0m| \n", str0);
+	printf("| ft_write  = %zd\n", ft_write(0, str0, strlen(str0)));
+	printf("| write     = %zd\n", write(0, str0, strlen(str0)));
+	printf("1: |\033[1;37m%s\033[0m| \n", str2);
+	printf("| ft_write  = %zd\n", ft_write(0, str2, strlen(str2)));
+	printf("| write     = %zd\n", write(0, str2, strlen(str2)));
+	printf("2: |\033[1;37m%s\033[0m| \n", str4);
+	printf("| ft_write  = %zd\n", ft_write(0, str4, strlen(str4)));
+	printf("| write     = %zd\n", write(0, str4, strlen(str4)));
+	printf("3: |\033[1;37m%s\033[0m| \n", str5);
+	printf("| ft_write  = %zd\n", ft_write(0, str5, strlen(str5)));
+	printf("| write     = %zd\n", write(0, str5, strlen(str5)));
 	
+
 	// printf("\033[0;33m# ---------  FT_READ vs READ  --------- #\033[0m\n");
 	
 	// char	buff[2048];
