@@ -1,14 +1,4 @@
-# If the first argument is "run"...
-ifeq (run,$(firstword $(MAKECMDGOALS)))
-RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
-$(eval $(RUN_ARGS):;@:)
-endif
-run:
-	@echo ${RUN_ARGS}
-	nasm -f elf64 -o test.o hello.s
-	ld -o hello.a test.o
-	@echo -n ">> : " && ./hello.a
-	@rm -rf hello.a test.o
+include help.mk
 
 NAME = libasm.a
 
@@ -35,19 +25,29 @@ CFLAGS		+= -Wall -Wextra -Werror
 $(NAME): ${OBJS}
 		ar rcs ${NAME} ${OBJS}
 
-.PHONY: run all clean fclean re t
+.PHONY: run all clean fclean re test
 
-all:	${NAME}
+all:	${NAME} # Compile Asm lib
 
-clean:
+clean: # Clean object files
 		${RM} ${OBJS}
 
-fclean:	clean
-		${RM} ${NAME}
-		${RM} test
+fclean:	clean # Clean object, lib and exec files
+		${RM} ${NAME} test.a
 
-re:		fclean all
+re:		fclean all # Clean project and rebuild
 
-test: fclean all
-	${CC} ${CFLAGS} main.c ${NAME} -o test
+test: 	re # Recompile with main.c for test
+	${CC} ${CFLAGS} main.c ${NAME} -o test.a
 
+# If the first argument is "run"...
+ifeq (run,$(firstword $(MAKECMDGOALS)))
+RUN_ARGS := $(wordlist 2,$(words $(MAKECMDGOALS)),$(MAKECMDGOALS))
+$(eval $(RUN_ARGS):;@:)
+endif
+run: # Run hello.c
+	@echo "Given args >> |"${RUN_ARGS}"|"
+	nasm -f elf64 -o test.o hello.s
+	ld -o hello.a test.o
+	@echo -n "run hello.s >> : " && ./hello.a
+	@rm -rf hello.a test.o
