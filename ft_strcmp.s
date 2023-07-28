@@ -1,3 +1,15 @@
+; ======================================================== ;
+; int strcmp(const char *s1, const char *s2); 
+; 
+; The function compares two strings s1 and s2.
+; The comparison use unsigned characters.
+; Returns: the result of the comparison (int):
+;     •  0, if the s1 and s2 are equal;
+;     •  negative value if s1 is less than s2;
+;     •  positive value if s1 is greater than s2.
+;
+; ======================================================== ;
+
 section .text
 global ft_strcmp
 
