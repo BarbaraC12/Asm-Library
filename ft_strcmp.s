@@ -7,7 +7,8 @@
 ;     •  0, if the s1 and s2 are equal;
 ;     •  negative value if s1 is less than s2;
 ;     •  positive value if s1 is greater than s2.
-;
+; 
+; 1st arg:  rdi | 2nd arg:  rsi
 ; ======================================================== ;
 
 section .text
