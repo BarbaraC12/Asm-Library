@@ -6,7 +6,7 @@
 /*   By: bcano <bcano@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:06:49 by bcano             #+#    #+#             */
-/*   Updated: 2023/07/30 17:50:21 by bcano            ###   ########.fr       */
+/*   Updated: 2023/07/30 18:38:32 by bcano            ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -16,10 +16,10 @@
 int  main() {
 //   char *str0 = "Je jure solonellement que mes intentions sont mauvaises";
 //   char *str1 = "Pourquoi cela signifierait-il que ce n'est pas réel?";
-  char *str2 = "42";
+//   char *str2 = "42";
 //   char *str3 = "\0";
 //   char *str4 = "";
-  char *str5 = "Mefait accomplies!";
+//   char *str5 = "Mefait accomplies!";
   
   	// printf("\033[0;33m# --------- FT_STRLEN vs STRLEN --------- #\033[0m\n");
 	// printf("0: |\033[1;37m%s\033[0m| \n", str0);
@@ -51,22 +51,22 @@ int  main() {
 	// printf("ft_strdup : |\033[1;37m%s|\n", ft_strdup(str1));
 	// printf("strdup    : |\033[1;37m%s|\n", strdup(str1));
 	
-	printf("\033[0;33m# --------- FT_STRCMP vs STRCMP --------- #\033[0m\n");
-	printf("1: |\033[1;37m%s vs hello\033[0m| \n", str2);
-	printf("ft_strcmp : |\033[1;37m%d|\n", ft_strcmp(str2, "hello"));
-	printf("strcmp    : |\033[1;37m%d|\n", strcmp(str2, "hello"));
-	printf("2: |\033[1;37m%s vs Mefait accomplies!\033[0m| \n", str5);
-	printf("ft_strcmp : |\033[1;37m%d|\n", ft_strcmp(str5, "Mefait accomplies!"));
-	printf("strcmp    : |\033[1;37m%d|\n", strcmp(str5, "Mefait accomplies!"));
-	printf("3: |\033[1;37mhell vs hello\033[0m| \n");
-	printf("ft_strcmp : |\033[1;37m%d|\n", ft_strcmp("hell", "hello"));
-	printf("strcmp    : |\033[1;37m%d|\n", strcmp("hell", "hello"));
-	printf("4: |\033[1;37mhell vs '\\0' \033[0m| \n");
-	printf("ft_strcmp : |\033[1;37m%d|\n", ft_strcmp("hell", "\0"));
-	printf("strcmp    : |\033[1;37m%d|\n", strcmp("hell", "\0"));
-	printf("5: |\033[1;37m'' vs hello\033[0m| \n");
-	printf("ft_strcmp : |\033[1;37m%d|\n", ft_strcmp("", "hello"));
-	printf("strcmp    : |\033[1;37m%d|\n", strcmp("", "hello"));
+	// printf("\033[0;33m# --------- FT_STRCMP vs STRCMP --------- #\033[0m\n");
+	// printf("1: |\033[1;37m%s vs hello\033[0m| \n", str2);
+	// printf("ft_strcmp : |\033[1;37m%d|\n", ft_strcmp(str2, "hello"));
+	// printf("strcmp    : |\033[1;37m%d|\n", strcmp(str2, "hello"));
+	// printf("2: |\033[1;37m%s vs Mefait accomplies!\033[0m| \n", str5);
+	// printf("ft_strcmp : |\033[1;37m%d|\n", ft_strcmp(str5, "Mefait accomplies!"));
+	// printf("strcmp    : |\033[1;37m%d|\n", strcmp(str5, "Mefait accomplies!"));
+	// printf("3: |\033[1;37mhell vs hello\033[0m| \n");
+	// printf("ft_strcmp : |\033[1;37m%d|\n", ft_strcmp("hell", "hello"));
+	// printf("strcmp    : |\033[1;37m%d|\n", strcmp("hell", "hello"));
+	// printf("4: |\033[1;37mhell vs '\\0' \033[0m| \n");
+	// printf("ft_strcmp : |\033[1;37m%d|\n", ft_strcmp("hell", "\0"));
+	// printf("strcmp    : |\033[1;37m%d|\n", strcmp("hell", "\0"));
+	// printf("5: |\033[1;37m'' vs hello\033[0m| \n");
+	// printf("ft_strcmp : |\033[1;37m%d|\n", ft_strcmp("", "hello"));
+	// printf("strcmp    : |\033[1;37m%d|\n", strcmp("", "hello"));
 	
 	// printf("\033[0;33m# --------- FT_WRITE vs WRITE --------- #\033[0m\n");
 	// printf("0: |\033[1;37m%s\033[0m| \n", str0);
@@ -83,22 +83,60 @@ int  main() {
 	// printf("| write     = %zd\n", write(0, str5, strlen(str5)));
 	
 
-	// printf("\033[0;33m# ---------  FT_READ vs READ  --------- #\033[0m\n");
+	printf("\033[0;33m# ---------  FT_READ vs READ  --------- #\033[0m\n");
 	
-	// char	buff[2048];
-	// int		fd;
-	// ssize_t	ret_ft;
-	// ssize_t	ret_;
-	// fd = open("test1.txt", O_RDONLY);
+	char	buff[2048];
+	int		fd;
+	ssize_t	ret_ft;
+	ssize_t	ret_;
+
+	printf("1: |\033[1;37mClassic test\033[0m| \n");
+	fd = open("test1.txt", O_RDONLY);
+	printf("ft_read   :\n");
+	if (fd != -1) {
+		bzero(buff, sizeof(buff));
+		while ((ret_ft = ft_read(fd, buff, 10)) != 0) {
+			buff[ret_ft] = '\0';
+			printf("%s|", buff);
+		}
+	}
+	printf("\n");
+	close(fd);
+
+	fd = open("test1.txt", O_RDONLY);
+	printf("read      :\n");
+	if (fd != -1) {
+		bzero(buff, sizeof(buff));
+		while ((ret_ = read(fd, buff, 10)) != 0) {
+			buff[ret_] = '\0';
+			printf("%s|", buff);
+		}
+	}
+	printf("\n");
+	close(fd);	
 	
-	// printf("1: |\033[1;37m%s\033[0m| \n", str1);
- //    ret_ft = ft_read(fd, buff, 10);
- //    buff[ret_ft] = '\0';
-	// printf("ft_read   : \n buff = %s, ret = %zd\n", buff, ret_ft);
-	// lseek(fd, 0, SEEK_SET);
-	// ret_ = read(fd, buff, 10);
-	// buff[ret_] = '\0';
-	// printf("read      : \nbuff = %s, ret = %zd\n", buff, ret_);
-	// close(fd);
-	// errno = 0;
+	printf("2: |\033[1;37mNon-existant file\033[0m| \n");
+	fd = open("test.txt", O_RDONLY);
+	printf("ft_read   :\n");
+	if (fd != -1) {
+		bzero(buff, sizeof(buff));
+		while ((ret_ft = ft_read(fd, buff, 10)) != 0) {
+			buff[ret_ft] = '\0';
+			printf("%s|", buff);
+		}
+	}
+	printf("\n");
+	close(fd);
+	fd = open("test.txt", O_RDONLY);
+	printf("read      :\n");
+	if (fd != -1) {
+		bzero(buff, sizeof(buff));
+		while ((ret_ = read(fd, buff, 10)) != 0) {
+			buff[ret_] = '\0';
+			printf("%s|", buff);
+		}
+	}
+	printf("\n");
+	close(fd);
+	errno = 0;
 }
