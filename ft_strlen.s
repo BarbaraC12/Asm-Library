@@ -12,14 +12,14 @@ section .text
 global ft_strlen
 
 ft_strlen:
-	mov		rax, 0					; on met rax a 0 
-	jmp		cond					; verifie cond avant loop
+	mov		rax, 0		; on met rax a 0 
+	jmp		cond		; verifie cond avant loop
 
 loop:
-	inc		rax						; sinon rax++
+	inc		rax			; sinon rax++
 
 cond:
 	cmp		BYTE [rdi + rax], 0	
-	jne		loop					; si false -> loop
+	jne		loop		; si false -> loop
 
-ret									; return rax
+ret						; return rax

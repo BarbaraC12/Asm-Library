@@ -22,9 +22,9 @@ ft_strcmp:
 loop:
 	mov		al, [rdi + rcx] ; on met rdi[rcx] dans al pour comparer bit par bit
 	mov		dl, [rsi + rcx] ; on met rsi[rcx] dans dl pour comparer bit par bit
-	cmp		al, 0           ; si al == \0 return
+	cmp		al, 0           ; si al == 0
 	je		end             ; return
-	cmp		dl, 0           ; si dl == \0 return
+	cmp		dl, 0           ; si dl == 0
 	je		end             ; return
 	cmp		al, dl          ; si al == dl : zf = 0
 	jne		end             ; return
