@@ -29,6 +29,7 @@ loop:
 	cmp		al, dl          ; si al == dl : zf = 0
 	jne		end             ; return
 	inc		rcx             ; sinon rcx++
+	jmp		loop
 
 end:
 	sub		rax, rdx
