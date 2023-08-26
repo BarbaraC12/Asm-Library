@@ -20,17 +20,33 @@ ft_strcmp:
 	xor		rcx, rcx
 
 loop:
-	mov		al, [rdi + rcx] ; on met rdi[rcx] dans al pour comparer bit par bit
-	mov		dl, [rsi + rcx] ; on met rsi[rcx] dans dl pour comparer bit par bit
-	cmp		al, 0           ; si al == 0
-	je		end             ; return
-	cmp		dl, 0           ; si dl == 0
-	je		end             ; return
-	cmp		al, dl          ; si al == dl : zf = 0
-	jne		end             ; return
-	inc		rcx             ; sinon rcx++
-	jmp		loop
+    mov		al, byte [rdi]  ; Charge le prochain octet de la première chaîne
+    mov		dl, byte [rsi]  ; Charge le prochain octet de la deuxième chaîne
+    cmp		al, dl          ; Compare les octets 
+    jne		different     	; si al = dl -> "different" sinon -> "continue"
+
+continue:
+    inc		rdi             ; Passe à l'octet suivant dans la première chaîne
+    inc		rsi             ; Passe à l'octet suivant dans la deuxième chaîne
+    test	al, al        	; Teste si la fin de la chaîne est atteinte
+    jnz		loop           	; Si oui -> "end", si non -> "loop"
 
 end:
-	sub		rax, rdx
-	ret
+    ret
+
+different:
+    test 	al, al         	; Teste si l'octet de la première chaîne est nul
+    jz		aless    		; Si oui -> "aless"
+    test	dl, dl         	; Teste si l'octet de la deuxième chaîne est nul
+    jz		bless 			; Si oui -> "bless"
+    sub		rax, rdx        ; Calcule la différence
+    mov		rax, rax
+    ret
+
+aless:
+    mov		rax, -1         ; Renvoie -1
+    ret
+
+bless:
+    mov		rax, 1         	; Renvoie 1
+    ret
