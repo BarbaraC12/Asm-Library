@@ -15,9 +15,8 @@ section .text
 global ft_strcmp
 
 ft_strcmp:
-	xor		rax, rax        ; met rax, rdx rcx a 0
+	xor		rax, rax        ; met rax, rdx a 0
 	xor		rdx, rdx
-	xor		rcx, rcx
 
 loop:
     mov		al, byte [rdi]  ; Charge le prochain octet de la première chaîne
